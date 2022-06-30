@@ -1,0 +1,32 @@
+{
+    "name": "tarisaxero/laravel-xero",
+    "description": "A Laravel Xero package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Admin Tarisa",
+            "email": "admin@tarisa.com.au",
+            "homepage": "https://tarisa.com.au"
+        }
+    ],
+    "homepage": "https://github.com/hivelinkdev/tarisaxero.git",
+    "keywords": ["Laravel", "Xero"],
+    "require": {
+        "guzzlehttp/guzzle": "^6|^7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tarisaxero\\Xero\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tarisaxero\\Xero\\XeroServiceProvider"
+            ],
+            "aliases": {
+                "Xero": "Tarisaxero\\Xero\\Facades\\Xero"
+            }
+        }
+    }
+}
