@@ -12,7 +12,7 @@ use Exception;
 use App\CompanyXeroSettings;
 use App\Http\Controllers\CompanyXeroSettingsController;
 use App\Applications;
-use App\Http\Controllers\ApplicantionsController;
+use App\Http\Controllers\ApplicationsController;
 use Illuminate\Support\Facades\Auth;
 
 class Xero
@@ -240,7 +240,7 @@ class Xero
         $applications = Applications::where('companyid', $company_id)->first();
         if($applications==null)
         {
-            $add_application = (new ApplicantionsController)->xero();
+            $add_application = (new ApplicationsController)->xero();
             $applications = Applications::where('companyid', $company_id)->first();
         }
 
