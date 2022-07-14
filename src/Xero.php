@@ -118,6 +118,7 @@ class Xero
                     ];
 
                     $this->storeToken($resultCode, $tenantData);
+                    return redirect()->route('settings');
 
                 } catch (Exception $e) {
                     throw new Exception('error getting tenant: '.$e->getMessage());
@@ -237,11 +238,11 @@ class Xero
     protected function storeToken($token, $tenantData = null)
     {
         $company_id = Auth::user()->company;
-        $applications = Applications::where('companyid', $company_id)->first();
+        $applications = Applications::where('companyid', $company_id)->first()->id;
         if($applications==null)
         {
             $add_application = (new ApplicationsController)->xero();
-            $applications = Applications::where('companyid', $company_id)->first();
+            $applications = Applications::where('companyid', $company_id)->first()->id;
         }
 
 
